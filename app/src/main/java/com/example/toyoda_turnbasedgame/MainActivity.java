@@ -44,16 +44,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int monsAtk;
     int monsHPPercent,monsMPPercent;
 
+    //strike skill stats
     int strikeMaxDmg = 100;
     int strikeMinDmg = 50;
     int strikeChance = 75;
     int strikeHpCost = 100;
 
+    //life steal skill stats
     int lifeStealMaxDmg = 250;
     int lifeStealMinDmg = 150;
     int lifeStealChance = 50;
     int lifeStealMpCost = 30;
 
+    //stun skill stats
     int stunMaxDmg = 60;
     int stunMinDmg = 40;
     int stunChance = 75;
@@ -61,14 +64,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int stunMonsMpCost = 40;
     int heroStunned, monsStunned;
 
+    //regen skill stats
     int regenChance = 50;
     int regenMpCost = 30;
 
+    //super strike skill stats
     int superStrikeMaxDmg = 250;
     int superStrikeMinDmg = 150;
     int superStrikeChance = 50;
     int superStrikeHpCost = 200;
 
+    //inferno skill stats
     int infernoDmg = 500;
     int infernoChance = 50;
     int infernoFail = 300;
@@ -139,8 +145,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         skill2.setOnClickListener(this);
         skill3.setOnClickListener(this);
         skill4.setOnClickListener(this);
-        skillInfo.setOnClickListener(this);
-        skillInfo2.setOnClickListener(this);
 
         start();
         mediaPlayer();
@@ -250,6 +254,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         skill();
     }
 
+    //Slark skill info
     public void info(View v) {
         if(infoTextBox.getVisibility() == View.GONE){
             infoTextBox.setVisibility(View.VISIBLE);
@@ -258,6 +263,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //Huskar skill info
     public void info2(View v) {
         if(infoTextBox2.getVisibility() == View.GONE){
             infoTextBox2.setVisibility(View.VISIBLE);

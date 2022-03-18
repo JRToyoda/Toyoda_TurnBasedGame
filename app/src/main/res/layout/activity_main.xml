@@ -13,6 +13,7 @@
         android:layout_width="220dp"
         android:layout_height="176dp"
         android:layout_marginBottom="80dp"
+        android:contentDescription="@string/description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/heroStatsLayout"
         app:layout_constraintHorizontal_bias="0.366"
@@ -20,13 +21,14 @@
         app:layout_constraintTop_toBottomOf="@+id/heroStatsLayout"
         app:layout_constraintVertical_bias="0.588"
         app:srcCompat="@drawable/slark_pixelated"
-        android:contentDescription="@string/description" />
+        tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="220dp"
         android:layout_height="176dp"
         android:layout_marginBottom="112dp"
+        android:contentDescription="@string/description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/monsStatsLayout"
         app:layout_constraintHorizontal_bias="1.0"
@@ -34,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/monsStatsLayout"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/huskar_pixelated"
-        android:contentDescription="@string/description" />
+        tools:ignore="ImageContrastCheck" />
 
     <FrameLayout
         android:id="@+id/heroStatsLayout"
@@ -84,7 +86,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/heart"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="ImageContrastCheck" />
 
             <ProgressBar
                 android:id="@+id/hpBar"
@@ -153,6 +156,7 @@
                 app:layout_constraintStart_toStartOf="@+id/energy"
                 app:layout_constraintTop_toBottomOf="@+id/mpBar"
                 app:layout_constraintVertical_bias="0.0" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
@@ -204,7 +208,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/heart2"
                 app:layout_constraintTop_toBottomOf="@+id/heart2"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="ImageContrastCheck" />
 
             <ProgressBar
                 android:id="@+id/hpBar2"
@@ -277,6 +282,7 @@
                 app:layout_constraintHorizontal_bias="0.95"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mpBar2" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
@@ -334,7 +340,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/strike"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/stun"
@@ -348,7 +354,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/strike"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
             <Button
                 android:id="@+id/regen"
@@ -390,7 +396,8 @@
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintVertical_bias="0.507"
+        tools:ignore="TextContrastCheck" />
 
     <FrameLayout
         android:id="@+id/infoTextBox"
@@ -448,10 +455,11 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914" />
+        app:layout_constraintVertical_bias="0.955"
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     <Button
         android:id="@+id/skillInfo2"
@@ -463,9 +471,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914" />
+        app:layout_constraintVertical_bias="0.955"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
