@@ -258,8 +258,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void info(View v) {
         if(infoTextBox.getVisibility() == View.GONE){
             infoTextBox.setVisibility(View.VISIBLE);
+            skillInfo.setVisibility(View.GONE);
+            skillInfo2.setVisibility(View.GONE);
+            skillInfo.setClickable(false);
+            skillInfo2.setClickable(false);
         } else {
             infoTextBox.setVisibility(View.GONE);
+            skillInfo.setVisibility(View.VISIBLE);
+            skillInfo2.setVisibility(View.VISIBLE);
+            skillInfo.setClickable(true);
+            skillInfo2.setClickable(true);
         }
     }
 
@@ -267,8 +275,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void info2(View v) {
         if(infoTextBox2.getVisibility() == View.GONE){
             infoTextBox2.setVisibility(View.VISIBLE);
+            skillInfo.setVisibility(View.GONE);
+            skillInfo2.setVisibility(View.GONE);
+            skillInfo.setClickable(false);
+            skillInfo2.setClickable(false);
         } else {
             infoTextBox2.setVisibility(View.GONE);
+            skillInfo.setVisibility(View.VISIBLE);
+            skillInfo2.setVisibility(View.VISIBLE);
+            skillInfo.setClickable(true);
+            skillInfo2.setClickable(true);
         }
     }
 
@@ -316,7 +332,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void skill() {
         Random randomizer = new Random();
         rng = randomizer.nextInt(100) + 1;
-        //slark wins
         if (turn == 1) {
             if (heroStunned > 0) { //checks if slark is stunned
                 dialogue.setText(heroName + " is stunned");
@@ -325,95 +340,100 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttonInvisible();
                 turn++;
             } else {
-                    if (strike) { //slark skill 1
-                        if (rng < strikeChance) {
-                            heroAtk = randomizer.nextInt(strikeMaxDmg - strikeMinDmg) + strikeMinDmg;
-                            monsHP -= heroAtk;
-                            dialogue.setText(heroName + " used Strike");
-                            if (monsHP < 0) {
-                                monsHP = 0;
-                            }
-                            if (heroMP != maxMP && heroMP < maxMP) {
-                                heroMP += 20;
-                            }
-                            atk();
-                        } else {
-                            dialogue.setText(heroName + "'s Strike missed");
-                            heroHP -= strikeHpCost;
-                            if (heroHP < 0) {
-                                heroHP = 0;
-                            }
-                            if (monsMP != maxMP2 && monsMP < maxMP2) {
-                                monsMP += 5;
-                            }
+                if (strike) { //slark skill 1
+                    if (rng < strikeChance) {
+                        heroAtk = randomizer.nextInt(strikeMaxDmg - strikeMinDmg) + strikeMinDmg;
+                        monsHP -= heroAtk;
+                        dialogue.setText(heroName + " used Strike");
+                        if (monsHP < 0) {
+                            monsHP = 0;
                         }
-                        strike = false;
-                        progressBar();
-                        buttonInvisible();
-                        turn++;
-                    }
-                    if (lifeSteal) { //slark skill 2
-                        if (rng < lifeStealChance) {
-                            heroAtk = randomizer.nextInt(lifeStealMaxDmg - lifeStealMinDmg) + lifeStealMinDmg;
-                            monsHP -= heroAtk;
-                            heroHP += heroAtk;
-                            dialogue.setText(heroName + " used Life Steal");
-                            if (monsHP < 0) {
-                                monsHP = 0;
-                            }
-                            if (heroHP > maxHP) {
-                                heroHP = maxHP;
-                            }
-                            atk();
-                        } else {
-                            dialogue.setText(heroName + "'s Life Steal missed");
-                            if (monsMP != maxMP2 && monsMP < maxMP2) {
-                                monsMP += 5;
-                            }
+                        if (heroMP != maxMP && heroMP < maxMP) {
+                            heroMP += 20;
                         }
-                        heroMP -= lifeStealMpCost;
-                        lifeSteal = false;
-                        progressBar();
-                        buttonInvisible();
-                        turn++;
-                    }
-                    if (stun) {
-                        if (rng < stunChance) { //slark skill 3
-                            heroAtk = randomizer.nextInt(stunMaxDmg - stunMinDmg) + stunMinDmg;
-                            monsHP -= heroAtk;
-                            monsStunned = 1;
-                            dialogue.setText(heroName + " used Stun");
-                            if (monsHP < 0) {
-                                monsHP = 0;
-                            }
-                            atk();
-                        } else {
-                            dialogue.setText(heroName + "'s Stun missed");
-                            if (monsMP != maxMP2 && monsMP < maxMP2) {
-                                monsMP += 5;
-                            }
+                        atk();
+                    } else {
+                        dialogue.setText(heroName + "'s Strike missed");
+                        heroHP -= strikeHpCost;
+                        if (heroHP < 0) {
+                            heroHP = 1;
                         }
-                        heroMP -= stunHeroMpCost;
-                        stun = false;
-                        progressBar();
-                        buttonInvisible();
-                        turn++;
-                    }
-                    if (regen) { //slark skill 4
-                        if (rng < regenChance) {
-                            heroAtk = maxHP - heroHP;
-                            heroHP += heroAtk;
-                            dialogue.setText(heroName + " used Regeneration");
-                        } else {
-                            dialogue.setText(heroName + " failed to Regenerate");
-                            heroHP -= heroHP;
+                        if (monsMP != maxMP2 && monsMP < maxMP2) {
+                            monsMP += 5;
                         }
-                        heroMP -= regenMpCost;
-                        regen = false;
-                        progressBar();
-                        buttonInvisible();
-                        turn++;
                     }
+                    strike = false;
+                    progressBar();
+                    buttonInvisible();
+                    turn++;
+                }
+                if (lifeSteal) { //slark skill 2
+                    if (rng < lifeStealChance) {
+                        heroAtk = randomizer.nextInt(lifeStealMaxDmg - lifeStealMinDmg) + lifeStealMinDmg;
+                        monsHP -= heroAtk;
+                        heroHP += heroAtk;
+                        dialogue.setText(heroName + " used Life Steal");
+                        if (monsHP < 0) {
+                            monsHP = 0;
+                        }
+                        if (heroHP > maxHP) {
+                            heroHP = maxHP;
+                        }
+                        atk();
+                    } else {
+                        dialogue.setText(heroName + "'s Life Steal missed");
+                        if (monsMP != maxMP2 && monsMP < maxMP2) {
+                            monsMP += 5;
+                        }
+                    }
+                    heroMP -= lifeStealMpCost;
+                    lifeSteal = false;
+                    progressBar();
+                    buttonInvisible();
+                    turn++;
+                }
+                if (stun) {
+                    if (rng < stunChance) { //slark skill 3
+                        heroAtk = randomizer.nextInt(stunMaxDmg - stunMinDmg) + stunMinDmg;
+                        monsHP -= heroAtk;
+                        monsStunned = 1;
+                        dialogue.setText(heroName + " used Stun");
+                        if (monsHP < 0) {
+                            monsHP = 0;
+                        }
+                        atk();
+                    } else {
+                        dialogue.setText(heroName + "'s Stun missed");
+                        if (monsMP != maxMP2 && monsMP < maxMP2) {
+                            monsMP += 5;
+                        }
+                    }
+                    heroMP -= stunHeroMpCost;
+                    stun = false;
+                    progressBar();
+                    buttonInvisible();
+                    turn++;
+                }
+                if (regen) { //slark skill 4
+                    if (rng < regenChance) {
+                        heroAtk = maxHP - heroHP;
+                        heroHP += heroAtk;
+                        dialogue.setText(heroName + " used Regeneration");
+                    } else {
+                        dialogue.setText(heroName + " failed to Regenerate");
+                        heroHP -= heroHP;
+                    }
+                    heroMP -= regenMpCost;
+                    regen = false;
+                    progressBar();
+                    buttonInvisible();
+                    turn++;
+                }
+            }
+            if (monsHP <= 0) { //slark wins
+                win = true;
+                reset();
+                progressBar();
             }
         } else {
             buttonInvisible();
@@ -429,11 +449,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 reset();
                 progressBar();
             }
-        }
-        if (monsHP <= 0) { //slark wins
-            win = true;
-            reset();
-            progressBar();
         }
     }
 
@@ -458,7 +473,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     dialogue.setText(monsName + "'s Strike missed");
                     monsHP -= strikeHpCost;
                     if (monsHP < 0) {
-                        monsHP = 0;
+                        monsHP = 1;
                     }
                     if (heroMP != maxMP && heroMP < maxMP) {
                         heroMP += 10;
@@ -486,7 +501,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 monsHP -= superStrikeHpCost;
                 if (monsHP < 0) {
-                    monsHP = 0;
+                    monsHP = 1;
                 }
                 progressBar();
                 break;
@@ -541,7 +556,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (monsHP != 0 && monsHP > 0) {
                     monsHP -= infernoFail;
                     if (monsHP < 0) {
-                        monsHP = 0;
+                        monsHP = 1;
                     }
                 }
             }

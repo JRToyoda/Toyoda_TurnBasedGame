@@ -10,7 +10,7 @@
     <string name="skillInfo"><br />\n
         Slark\'s skill<br />\n
         <br />\n
-        Strike - Slark uses brute force to deal 50 ~ 100 dmg and restore 10 mp. If Slark misses, he loses 100 hp and the enemy gains 5 mp.<br />\n
+        Strike - Slark uses brute force to deal 50 ~ 100 dmg and restore 10 mp. If Slark misses, he loses 100 hp and the enemy gains 5 mp. Slark does not die from hp loss using Strike.<br />\n
         cost = 0 mp<br />\n
         Life Steal - Slark uses blood magic to steal 150 ~ 250 hp from the enemy. If Slark misses the enemy gains 5 mp.<br />\n
         cost = 30 mp<br />\n
@@ -23,13 +23,13 @@
     <string name="skillInfo2"><br />\n
         Huskar\'s skill<br />\n
         <br />\n
-        Strike - Huskar uses brute force to deal 50 ~ 100 dmg and restore 10 mp. If Huskar misses, he loses 100 hp and the enemy gains 10 mp.<br />\n
+        Strike - Huskar uses brute force to deal 50 ~ 100 dmg and restore 10 mp. If Huskar misses, he loses 100 hp and the enemy gains 10 mp. Huskar does not die from hp loss using Strike.<br />\n
         cost = 0 mp<br />\n
-        Super Strike - Huskar uses brute force to deal 150 ~ 250 dmg and restore 20 mp. If Huskar misses, the enemy gains 10 mp.<br />\n
+        Super Strike - Huskar uses brute force to deal 150 ~ 250 dmg and restore 20 mp. If Huskar misses, the enemy gains 10 mp. Huskar does not die from hp loss using Super Strike.<br />\n
         cost = 200 hp<br />\n
         Stun - Huskar uses paralysis magic to deal 40 ~ 60 dmg and stun the enemy for 1 turn. If Huskar misses, the enemy gains 10 mp.<br />\n
         cost = 40 mp<br />\n
-        Inferno - Huskar\'s Ultimate. Huskar uses demon magic to deal 500 pure dmg. If Huskar misses, he loses 300 hp.<br />\n
+        Inferno - Huskar\'s Ultimate. Huskar uses demon magic to deal 500 pure dmg. If Huskar misses, he loses 300 hp. Huskar does not die from hp loss using Inferno.<br />\n
     </string>
 
 
