@@ -502,7 +502,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void monsStun() {
         Random randomizer = new Random();
         rng = randomizer.nextInt(100) + 1;
-        if (monsMP >= stunMonsMpCost) { //checks is huskar has enough mana to use stun. If not, he uses another skill.
+        if (monsMP >= stunMonsMpCost) { //checks if huskar has enough mana to use stun. If not, he uses another skill.
             if (rng < stunChance) { //huskar skill 3
                 monsAtk = randomizer.nextInt(stunMaxDmg - stunMinDmg) + stunMinDmg;
                 heroHP -= monsAtk;
@@ -550,6 +550,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             monsSkills();
         }
     }
+
     public void reset() { //resets the game
         if (win) {
             dialogue.setText(heroName + " wins!");
