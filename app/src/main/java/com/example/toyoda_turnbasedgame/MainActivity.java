@@ -316,6 +316,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void skill() {
         Random randomizer = new Random();
         rng = randomizer.nextInt(100) + 1;
+        //slark wins
         if (turn == 1) {
             if (heroStunned > 0) { //checks if slark is stunned
                 dialogue.setText(heroName + " is stunned");
@@ -409,16 +410,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                         heroMP -= regenMpCost;
                         regen = false;
-                        atk();
                         progressBar();
                         buttonInvisible();
                         turn++;
                     }
-            }
-            if (monsHP <= 0) { //slark wins
-                win = true;
-                reset();
-                progressBar();
             }
         } else {
             buttonInvisible();
@@ -434,6 +429,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 reset();
                 progressBar();
             }
+        }
+        if (monsHP <= 0) { //slark wins
+            win = true;
+            reset();
+            progressBar();
         }
     }
 
@@ -502,8 +502,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void monsStun() {
         Random randomizer = new Random();
         rng = randomizer.nextInt(100) + 1;
-        if (monsMP >= stunMonsMpCost) { //huskar skill 3
-            if (rng < stunChance) {
+        if (monsMP >= stunMonsMpCost) { //checks is huskar has enough mana to use stun. If not, he uses another skill.
+            if (rng < stunChance) { //huskar skill 3
                 monsAtk = randomizer.nextInt(stunMaxDmg - stunMinDmg) + stunMinDmg;
                 heroHP -= monsAtk;
                 heroStunned = 1;
@@ -528,7 +528,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void monsUlt() {
         Random randomizer = new Random();
         rng = randomizer.nextInt(100) + 1;
-        if (rng < 50) {
+        if (rng < 50) { //makes it so that huskar is twice as unlikely to use his ultimate
             if (rng < infernoChance) { //huskar skill 4
                 heroHP -= infernoDmg;
                 dialogue.setText(monsName + " used Inferno");
